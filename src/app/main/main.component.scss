@@ -1,0 +1,152 @@
+.container {
+  width: 100%;
+
+  .header {
+    background-color: #fff;
+    padding: 3rem 0;
+    box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &-leftSide {
+      margin: 0 5rem;
+    }
+
+    &-rightSide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 3rem;
+      list-style: none;
+
+      .logo {
+        width: 7rem;
+        padding-left: 2rem;
+        border-left: .1rem solid #999;
+        margin: 0 1rem;
+      }
+
+      .header-item {
+        color: #757575;
+        padding: 0 1rem;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+
+      .form-search {
+        position: relative;
+
+        .search-icon {
+          position: absolute;
+          font-size: 2rem;
+          right: 1.5rem;
+          top: .5rem;
+          color: #37b34a;
+          transform: rotate(90deg);
+        }
+
+        .header-search {
+          padding: 1rem 4rem;
+          width: 25vw;
+          border: .2rem solid #eee;
+          border-radius: 2rem;
+          outline: none;
+          font-size: 1.5rem;
+
+          &:focus {
+            border: .2rem solid #37b34a;
+          }
+
+          &::placeholder {
+            font-family: IranSans-Normal;
+          }
+        }
+      }
+
+    }
+
+    &-navbar {
+      display: flex;
+      list-style: none;
+      font-family: IranSans-Normal;
+    }
+
+    li:not(:last-child) {
+      margin-left: 2.5rem;
+    }
+
+    .navbar-item {
+      font-family: IranSans-Normal;
+      font-size: 1.5rem;
+      padding: .5rem 1.5rem;
+      border: .2rem solid #37b34a;
+      border-radius: 3rem;
+      text-decoration: none;
+      transition: background-color .2s;
+      cursor: pointer;
+
+
+      &.account {
+        background-color: #37b34a;
+        color: #fff;
+
+        &:hover {
+          background-color: #fff;
+          color: #37b34a;
+        }
+
+      }
+
+      &.teach {
+        color: #37b34a;
+
+        &:hover {
+          background-color: #37b34a;
+          color: #fff;
+        }
+      }
+    }
+
+    .form-signUp {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      text-align: center;
+      direction: rtl;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .2), .1rem .2rem .2rem rgba(0, 0, 0, .2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &>p {
+        font-size: 2rem;
+        font-family: IranSans-Normal;
+      }
+
+      .signUp-input {
+        margin: 1.5em;
+        padding: 1rem;
+        border-radius: 2rem;
+        font-size: 1.8rem;
+        border: .2rem solid #777;
+        outline: none;
+
+        &::placeholder {
+          font-family: IranSans-normal;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  background-color: #37b34a;
+}

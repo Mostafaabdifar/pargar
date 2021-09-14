@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: blue;
+
+  .navigation-menu {
+    font-family: IranSans-Normal;
+    background-color: red;
+    width: 80%;
+    padding: 3rem;
+    margin: 0 auto;
+
+    .navigation-item{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+       li{
+         padding: 1rem;
+         border-bottom:.3rem solid #fff;
+         &:hover{
+           border-bottom:.3rem solid #37b34a ;
+         }
+       }
+    }
+  }
+}
