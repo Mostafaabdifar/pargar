@@ -15,20 +15,28 @@
     </nav>
     <nav class="header-leftSide">
       <ul class="header-navbar">
-        <li><a class="navbar-item teach" (click)="teach()">در پرگار درس بدهید</a></li>
-        <li><a class="navbar-item account" (click)="login()">حساب من</a></li>
+        <li><a class="navbar-item white-btn" (click)="teach()">در پرگار درس بدهید</a></li>
+        <li><a class="navbar-item green-btn account">حساب من <i class="fa fa-chevron-down"></i></a>
+          <div class="dropdown">
+            <a class="dropdown-login" (click)="login()">ورود/ثبت نام رایگان</a>
+            <a>کد هدیه</a>
+          </div>
+        </li>
+        <li><img src="../../assets/download.png" class="iconProfile" alt="profile" *ngIf="current == -1"></li>
       </ul>
     </nav>
+    <div class="overlay" *ngIf="current == 1 || current == 2" (click)="showOverlay()"></div>
     <form *ngIf="current == 1" class="form-signUp" [formGroup]="step1" (ngSubmit)="getVerification()">
       <input formControlName="mobile" placeholder="شماره تلفن همراه" class="signUp-input">
       <span *ngIf="">لطفا شماره تلفن خود را وارد کنید </span>
-      <button class="navbar-item account">دریافت کد تائید</button>
+      <button class="navbar-item green-btn">دریافت کد تائید</button>
     </form>
     <form *ngIf="current == 2" class="form-signUp" [formGroup]="step2" (ngSubmit)="getToken()">
       <input formControlName="verification_code" placeholder="کد تائید" class="signUp-input">
       <input formControlName="nickname" placeholder="نام نمایشی" class="signUp-input">
-      <button class="navbar-item account">ورود به پرگار</button>
+      <button class="navbar-item green-btn">ورود به پرگار</button>
     </form>
   </div>
+  <!-- <app-header-slider></app-header-slider> -->
 </div>
-<app-profile [user]="user" *ngIf="current == -1"></app-profile>
+<app-profile [user]="user" *ngIf="false"></app-profile>

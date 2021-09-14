@@ -1,6 +1,6 @@
-import { LocalStorageService } from './../service/local-storage.service';
+import { LocalStorageService } from './../../service/local-storage.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Token } from '../model/login.model';
+import { Token } from '../../model/login.model';
 
 @Component({
   selector: 'app-profile',

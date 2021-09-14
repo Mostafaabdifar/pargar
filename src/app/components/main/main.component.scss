@@ -1,8 +1,13 @@
+
+@import "/src/app/styles/color";
+@import "/src/app/styles/mixin";
+
 .container {
   width: 100%;
+  background-color: whitesmoke;
 
   .header {
-    background-color: #fff;
+    background-color: $white;
     padding: 3rem 0;
     box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .2);
     display: flex;
@@ -43,7 +48,7 @@
           font-size: 2rem;
           right: 1.5rem;
           top: .5rem;
-          color: #37b34a;
+          color: $primary_color;
           transform: rotate(90deg);
         }
 
@@ -56,7 +61,7 @@
           font-size: 1.5rem;
 
           &:focus {
-            border: .2rem solid #37b34a;
+            border: .2rem solid $primary_color;
           }
 
           &::placeholder {
@@ -71,6 +76,47 @@
       display: flex;
       list-style: none;
       font-family: IranSans-Normal;
+
+      &>li {
+        position: relative;
+
+        &>.dropdown {
+          display: none;
+          background-color: $white;
+          position: absolute;
+          bottom: 1rem;
+          z-index: 10000;
+          width: 12rem;
+          padding: .5rem;
+          border-radius: .4rem;
+          box-shadow: 0 .2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+          bottom: -7.5rem;
+          right: -.2rem;
+          text-align: center;
+          font-size: 1.2rem;
+
+          &:hover{
+            display: block;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            background-color: $white;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            transform: rotate(45deg);
+            top: -.5rem;
+            right: 5.5rem;
+          }
+
+          &>a {
+            display: block;
+            cursor: pointer;
+            padding: .5rem;
+          }
+        }
+      }
     }
 
     li:not(:last-child) {
@@ -81,36 +127,53 @@
       font-family: IranSans-Normal;
       font-size: 1.5rem;
       padding: .5rem 1.5rem;
-      border: .2rem solid #37b34a;
+      border: .2rem solid $primary_color;
       border-radius: 3rem;
       text-decoration: none;
       transition: background-color .2s;
       cursor: pointer;
 
-
-      &.account {
-        background-color: #37b34a;
-        color: #fff;
+      &.green-btn {
+        background-color: $primary_color;
+        color: $white;
+        position: relative;
 
         &:hover {
-          background-color: #fff;
-          color: #37b34a;
+          background-color: $white;
+          color: $primary_color;
         }
 
+        &:hover+.dropdown {
+          display: block;
+        }
       }
 
-      &.teach {
-        color: #37b34a;
+      &.white-btn {
+        color: $primary_color;
 
         &:hover {
-          background-color: #37b34a;
-          color: #fff;
+          background-color: $primary_color;
+          color: $white;
         }
       }
     }
 
+    .iconProfile {
+      width: 3rem;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .overlay{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.4);
+    }
     .form-signUp {
-      background: #fff;
+      background: $white;
       border-radius: 2rem;
       padding: 2rem;
       text-align: center;
@@ -148,5 +211,6 @@
 }
 
 .profile {
-  background-color: #37b34a;
+  background-color: $primary_color;
+
 }

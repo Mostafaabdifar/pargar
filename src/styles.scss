@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "/src/app/styles/color";
+@import "/src/app/styles/mixin";
+
 *,
 *:before,
 *:after {
@@ -16,20 +19,20 @@ html {
   font-family: IranSans-Bold;
   font-style: normal;
   font-weight: bold;
-  src:url('../src/app/fonts/IRANSans-Bold.ttf') format('truetype');
+  src:url('../src/assets/fonts/IRANSans-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: IranSans-Light;
   font-style: normal;
-  src:url('../src/app/fonts/IRANSans-Light.ttf') format('truetype');
+  src:url('../src/assets/fonts/IRANSans-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: IranSans-Medium;
   font-style: normal;
-  src:url('../src/app/fonts/IRANSans-Medium.ttf') format('truetype');
+  src:url('../src/assets/fonts/IRANSans-Medium.ttf') format('truetype');
 }
 @font-face {
   font-family: IranSans-Normal;
   font-style: normal;
-  src:url('../src/app/fonts/IRANSans.ttf') format('truetype');
+  src:url('../src/assets/fonts/IRANSans.ttf') format('truetype');
 }

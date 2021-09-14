@@ -1,4 +1,4 @@
-import { RootMenu } from './../model/category.model';
+import { RootMenu } from './../../model/category.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

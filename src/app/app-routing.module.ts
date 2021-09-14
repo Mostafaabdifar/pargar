@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Page404Component } from './components/page404/page404.component';
-import { MainComponent } from './main/main.component';
-import { ProfileComponent } from './profile/profile.component';
+import { MainComponent } from './components/main/main.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { ResolverService } from './service/resolver.service';
 

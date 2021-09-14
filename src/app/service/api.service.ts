@@ -26,4 +26,13 @@ export class ApiService {
   getUserProfile():Observable<any>{
      return this.http.get(`${baseUrl}/profile`);
   }
+
+  getCategoriesList():Observable<any>{
+    return this.http.get(`${baseUrl}/profile`);//////remove
+  }
+
+  getHomeData():Observable<any>{
+    return this.http.get(`${baseUrl}/profile`);///////remove
+  }
+
 }
