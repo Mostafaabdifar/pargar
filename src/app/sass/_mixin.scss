@@ -1,0 +1,5 @@
+@mixin fontStyle($size,$style){
+  font-family: IranSans-Normal;
+  font-size: $size;
+  font-weight: $style;
+}

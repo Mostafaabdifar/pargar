@@ -1,14 +1,13 @@
-
-@import "/src/app/styles/color";
-@import "/src/app/styles/mixin";
+@import "/src/app/sass/color";
+@import "/src/app/sass/mixin";
 
 .container {
   width: 100%;
-  background-color: whitesmoke;
+  background-color: $light-gray;
 
   .header {
     background-color: $white;
-    padding: 3rem 0;
+    padding: 2rem 0;
     box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .2);
     display: flex;
     justify-content: space-between;
@@ -29,14 +28,14 @@
       .logo {
         width: 7rem;
         padding-left: 2rem;
-        border-left: .1rem solid #999;
+        border-left: .2rem solid $border;
         margin: 0 1rem;
       }
 
       .header-item {
+        @include fontStyle(1.5rem, normal);
         color: #757575;
         padding: 0 1rem;
-        font-size: 1.5rem;
         text-decoration: none;
       }
 
@@ -45,20 +44,20 @@
 
         .search-icon {
           position: absolute;
-          font-size: 2rem;
           right: 1.5rem;
-          top: .5rem;
+          top: 1rem;
           color: $primary_color;
           transform: rotate(90deg);
+          font-size: 2rem
         }
 
         .header-search {
+          @include fontStyle(1.5rem, normal);
           padding: 1rem 4rem;
-          width: 25vw;
-          border: .2rem solid #eee;
-          border-radius: 2rem;
+          width: 30vw;
+          border: .2rem solid $border;
+          border-radius: 2.5rem;
           outline: none;
-          font-size: 1.5rem;
 
           &:focus {
             border: .2rem solid $primary_color;
@@ -91,13 +90,14 @@
           border-radius: .4rem;
           box-shadow: 0 .2rem 1rem 0rem rgba(0, 0, 0, 0.2);
           bottom: -7.5rem;
-          right: -.2rem;
+          right: .3rem;
           text-align: center;
           font-size: 1.2rem;
 
-          &:hover{
+          &:hover {
             display: block;
           }
+
           &::before {
             content: "";
             position: absolute;
@@ -124,60 +124,58 @@
     }
 
     .navbar-item {
-      font-family: IranSans-Normal;
-      font-size: 1.5rem;
-      padding: .5rem 1.5rem;
+      padding: .5rem 2rem;
       border: .2rem solid $primary_color;
       border-radius: 3rem;
       text-decoration: none;
       transition: background-color .2s;
       cursor: pointer;
+      @include fontStyle(1.5rem, normal);
 
-      &.green-btn {
-        background-color: $primary_color;
-        color: $white;
-        position: relative;
-
-        &:hover {
-          background-color: $white;
-          color: $primary_color;
-        }
-
-        &:hover+.dropdown {
-          display: block;
-        }
+      &>i{
+        transform: translateY(.2rem);
       }
 
-      &.white-btn {
-        color: $primary_color;
-
-        &:hover {
-          background-color: $primary_color;
-          color: $white;
-        }
+      &:hover+.dropdown {
+        display: block;
       }
     }
-
-    .iconProfile {
-      width: 3rem;
-      height: auto;
+    .resend-code{
+      @include fontStyle(1.4rem, normal);
+      padding-top: 1rem;
+      background-color: transparent;
+      border: none;
+      color: $primary_color;
       cursor: pointer;
     }
 
-    .overlay{
+    .iconProfile {
+      width: 3.5rem;
+      height: 3.5rem;
+      cursor: pointer;
+      transform: translateY(-1rem);
+      
+      &:hover+.dropdown {
+        display: block;
+      }
+    }
+
+    .overlay {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: rgba(0,0,0,.4);
+      background-color: rgba(0, 0, 0, .4);
     }
+
     .form-signUp {
+      width: 50rem;
       background: $white;
-      border-radius: 2rem;
+      border-radius: .5rem;
       padding: 2rem;
+      margin: 0 1rem;
       text-align: center;
-      direction: rtl;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -193,17 +191,37 @@
         font-family: IranSans-Normal;
       }
 
+      .heading-signUp {
+        @include fontStyle(1.8rem, bold);
+        margin-left: auto;
+      }
+
       .signUp-input {
-        margin: 1.5em;
+        @include fontStyle(1.8rem, normal);
+        width: 100%;
+        margin: 1.5rem;
         padding: 1rem;
-        border-radius: 2rem;
+        border-radius: .5rem;
         font-size: 1.8rem;
-        border: .2rem solid #777;
+        border: .2rem solid $border;
         outline: none;
 
+        &:focus {
+          border: .2rem solid $primary_color;
+        }
+
+        &[type=number] {
+          -moz-appearance: textfield;
+        }
+
+        &[type=number]::-webkit-outer-spin-button,
+        &[type=number]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0
+        }
+
         &::placeholder {
-          font-family: IranSans-normal;
-          text-align: center;
+          @include fontStyle(1.7rem, normal);
         }
       }
     }

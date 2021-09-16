@@ -16,25 +16,36 @@
     <nav class="header-leftSide">
       <ul class="header-navbar">
         <li><a class="navbar-item white-btn" (click)="teach()">در پرگار درس بدهید</a></li>
-        <li><a class="navbar-item green-btn account">حساب من <i class="fa fa-chevron-down"></i></a>
-          <div class="dropdown">
+        <li><a class="navbar-item green-btn account" *ngIf="current == 0">حساب من <i class="fa fa-chevron-down"></i></a>
+          <div class="dropdown" *ngIf="current == 0">
             <a class="dropdown-login" (click)="login()">ورود/ثبت نام رایگان</a>
             <a>کد هدیه</a>
           </div>
         </li>
-        <li><img src="../../assets/download.png" class="iconProfile" alt="profile" *ngIf="current == -1"></li>
+        <li><a class="navbar-item green-btn account" *ngIf="current == -1 || isLogin">کاربر اشتراکی شوید!</a>
+        <img [src]="avatar" class="iconProfile" alt="profile" *ngIf="current == -1 ">
+          <div class="dropdown">
+            <a class="dropdown-login">پروفایل</a>
+            <a>راهنما</a>
+            <a>خروج از پرگار</a>
+            <a>کاربر اشتراکی شوید</a>
+          </div>
+        </li>
       </ul>
     </nav>
     <div class="overlay" *ngIf="current == 1 || current == 2" (click)="showOverlay()"></div>
     <form *ngIf="current == 1" class="form-signUp" [formGroup]="step1" (ngSubmit)="getVerification()">
+      <h3 class="heading-signUp">ورود و ثبت نام</h3>
       <input formControlName="mobile" placeholder="شماره تلفن همراه" class="signUp-input">
       <span *ngIf="">لطفا شماره تلفن خود را وارد کنید </span>
       <button class="navbar-item green-btn">دریافت کد تائید</button>
     </form>
     <form *ngIf="current == 2" class="form-signUp" [formGroup]="step2" (ngSubmit)="getToken()">
+      <h3 class="heading-signUp">ورود کد تائید</h3>
       <input formControlName="verification_code" placeholder="کد تائید" class="signUp-input">
       <input formControlName="nickname" placeholder="نام نمایشی" class="signUp-input">
       <button class="navbar-item green-btn">ورود به پرگار</button>
+      <button class="resend-code" (click)="resendCode()">ارسال مجدد کد تائید</button>
     </form>
   </div>
   <!-- <app-header-slider></app-header-slider> -->

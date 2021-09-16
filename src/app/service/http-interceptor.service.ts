@@ -18,8 +18,6 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
 
-    
-
     const token = this.local.Token;
     if(token){
       req = req.clone({

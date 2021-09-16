@@ -10,7 +10,6 @@ export interface code{
   verification_code:number,
   nickname:string
 }
-
 export interface Token{
   error: number;
   user_id: number;

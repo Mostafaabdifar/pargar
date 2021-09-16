@@ -1,4 +1,12 @@
-
+export interface MainObject {
+  id: number;
+  parent_categories: ParentCategory[];
+  name: string;
+  category: any[];
+  tabStrip: any[];
+  headeritem: ProductItem[];
+  homeitem: HomeItem[];
+}
 export interface RootMenu {
   id: number;
   is_default: boolean;
@@ -64,6 +72,29 @@ export interface ParentCategory {
   is_enable: boolean;
   is_visible: boolean;
   parent?: any;
+  childs: Child[];
+}
+export interface Child {
+  id: number;
+  is_default: boolean;
+  title: string;  
+  avatar: string;
+  position: number;
+  is_enable: boolean;
+  is_visible: boolean;
+  parent: number;
+  childs: Child2[];
+}
+export interface Child2 {
+  id: number;
+  is_default: boolean;
+  title: string;
+  avatar: string;
+  position: number;
+  is_enable: boolean;
+  is_visible: boolean;
+  parent: number;
+  childs: any[];
 }
 export interface ProductItem {
   id: number;
@@ -108,6 +139,7 @@ export interface CategoryModel {
 export interface Customjson {
   asset_id: number;
 }
+
 export interface Product {
   id: number;
   name: string;
@@ -152,7 +184,7 @@ export interface Support2 {
   instagram: string;
   telegram: string;
 }
-export interface Homeitem {
+export interface HomeItem {
   id: number;
   title: string;
   sub_title: string;
@@ -164,12 +196,3 @@ export interface Homeitem {
   row_mode: number;
 }
 
-export interface MainObject {
-  id: number;
-  parent_categories: ParentCategory[];
-  name: string;
-  category: any[];
-  tabStrip: any[];
-  headeritem: ProductItem[];
-  homeitem: Homeitem[];
-}
