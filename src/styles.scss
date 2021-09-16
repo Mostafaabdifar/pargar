@@ -18,6 +18,15 @@ html {
 
 
 /// white button
+.navbar-item {
+  padding: .5rem 2rem;
+  border: .2rem solid $primary_color;
+  border-radius: 3rem;
+  text-decoration: none;
+  transition: background-color .2s;
+  cursor: pointer;
+  @include fontStyle(1.5rem, normal);
+}
 
 .white-btn {
   color: $primary_color;
@@ -48,16 +57,7 @@ html {
   font-weight: bold;
   src:url('../src/assets/fonts/IRANSans-Bold.ttf') format('truetype');
 }
-@font-face {
-  font-family: IranSans-Light;
-  font-style: normal;
-  src:url('../src/assets/fonts/IRANSans-Light.ttf') format('truetype');
-}
-@font-face {
-  font-family: IranSans-Medium;
-  font-style: normal;
-  src:url('../src/assets/fonts/IRANSans-Medium.ttf') format('truetype');
-}
+
 @font-face {
   font-family: IranSans-Normal;
   font-style: normal;

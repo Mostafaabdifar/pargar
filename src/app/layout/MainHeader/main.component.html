@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
     <nav class="header-rightSide">
-      <li><img src="../../assets/logo.png" alt="pargar" class="logo"></li>
+      <li><img src="../../assets/img/logo.png" alt="pargar" class="logo"></li>
       <li><a class="header-item" href="#">دسته بندی</a></li>
       <li>
         <form class="form-search">
@@ -17,15 +17,16 @@
       <ul class="header-navbar">
         <li><a class="navbar-item white-btn" (click)="teach()">در پرگار درس بدهید</a></li>
         <li><a class="navbar-item green-btn account" *ngIf="current == 0">حساب من <i class="fa fa-chevron-down"></i></a>
+          <a class="navbar-item green-btn account" *ngIf="current == -1">کاربر اشتراکی شوید!</a>
           <div class="dropdown" *ngIf="current == 0">
             <a class="dropdown-login" (click)="login()">ورود/ثبت نام رایگان</a>
             <a>کد هدیه</a>
           </div>
         </li>
-        <li><a class="navbar-item green-btn account" *ngIf="current == -1 || isLogin">کاربر اشتراکی شوید!</a>
-        <img [src]="avatar" class="iconProfile" alt="profile" *ngIf="current == -1 ">
-          <div class="dropdown">
-            <a class="dropdown-login">پروفایل</a>
+        <li>
+          <img [src]="avatar" class="iconProfile" alt="profile" *ngIf="current == -1">
+          <div class="dropdown d-profile">
+            <a>پروفایل</a>
             <a>راهنما</a>
             <a>خروج از پرگار</a>
             <a>کاربر اشتراکی شوید</a>
@@ -48,6 +49,5 @@
       <button class="resend-code" (click)="resendCode()">ارسال مجدد کد تائید</button>
     </form>
   </div>
-  <!-- <app-header-slider></app-header-slider> -->
 </div>
-<app-profile [user]="user" *ngIf="false"></app-profile>
+<!-- <app-profile [user]="user" *ngIf="false"></app-profile> -->

@@ -5,6 +5,8 @@ import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { HomeItem, ParentCategory } from 'src/app/model/category.model';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-main',
@@ -20,13 +22,15 @@ export class MainComponent implements OnInit {
   user: Token | undefined;
   homeItem:HomeItem[] = [];
   parentItem:ParentCategory[] = [];
-  isLogin:string | undefined;
 
   constructor(
     private api: ApiService,
     private local: LocalStorageService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
+
+
 
   ngOnInit(): void {
     this.initForm();
@@ -86,11 +90,6 @@ export class MainComponent implements OnInit {
     this.current = 0;
   }
 
-  saveToken() {
-    this.local.setItem('auth', this.tokenForm.value.token);
-
-  }
-
   getVerification() {
     this.api.getVerification(this.step1.value).subscribe(
       () => {
@@ -99,7 +98,7 @@ export class MainComponent implements OnInit {
       },
       error => {
         this.current = 1;
-        // alert(error.error.error)
+        this.openDialog();
       }
     )
   }
@@ -109,10 +108,8 @@ export class MainComponent implements OnInit {
       data => {
         this.current = -1; //login profile
         this.local.Token = data.token;
-        this.isLogin= data.token;
         this.getProfile();
         this.user = data;
-        console.log(this.isLogin)
       },
       error => {}
     )
@@ -135,4 +132,12 @@ export class MainComponent implements OnInit {
     this.getVerification();
   }
 
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: {
+        animal: 'panda'
+      }
+    });
+  }
 }
+

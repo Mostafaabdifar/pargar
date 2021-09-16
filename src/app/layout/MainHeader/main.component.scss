@@ -73,6 +73,8 @@
 
     &-navbar {
       display: flex;
+      justify-content: center;
+      align-items: center;
       list-style: none;
       font-family: IranSans-Normal;
 
@@ -93,6 +95,11 @@
           right: .3rem;
           text-align: center;
           font-size: 1.2rem;
+
+          &.d-profile{
+            bottom: -12.5rem;
+            right: -4.3rem;
+          }
 
           &:hover {
             display: block;
@@ -124,12 +131,6 @@
     }
 
     .navbar-item {
-      padding: .5rem 2rem;
-      border: .2rem solid $primary_color;
-      border-radius: 3rem;
-      text-decoration: none;
-      transition: background-color .2s;
-      cursor: pointer;
       @include fontStyle(1.5rem, normal);
 
       &>i{
@@ -153,7 +154,8 @@
       width: 3.5rem;
       height: 3.5rem;
       cursor: pointer;
-      transform: translateY(-1rem);
+      transform: translateY(.3rem);
+      margin-left: 3rem;
       
       &:hover+.dropdown {
         display: block;

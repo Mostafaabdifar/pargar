@@ -1,0 +1,109 @@
+@import "../../sass/color";
+@import "../../sass/mixin";
+
+footer{
+  border-top: .2rem solid $border;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem;
+
+  .footer-container{
+    width: 117rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .footer-menu{
+      @include fontStyle(1.5rem,normal);
+      flex: 1;
+      text-align: right;
+      padding: 0 1rem;
+
+      &>ul{
+        list-style: none;
+
+        li{
+          padding: .2rem 0;
+
+          a{
+            text-decoration: none;
+            cursor: pointer;
+            color: $black;
+            &:hover{
+              color: $hover-menu;
+            }
+          }
+        }
+      }
+    }
+
+    .career{
+      flex: 1;
+      padding: 0 1rem;
+      text-align: right;
+
+      .heading-career{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        float: right;
+
+        h5{
+          @include fontStyle(1.5rem,normal);
+        }
+
+        button{
+          padding: .5rem 6rem;
+          border-radius: 3rem;
+          margin: 1rem;
+          background-color:$white;
+
+          &:hover {
+            background-color: $primary_color;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .social{
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .social-heading{
+        padding: 0;
+
+        &>h3{
+          @include fontStyle(1.6rem,bold)
+        }
+        &>p{
+          @include fontStyle(1.1rem,normal);
+          margin:.5rem 0;
+
+        }
+      }
+
+      .social-media{
+        margin-left: 4rem;
+
+        &>a{
+          margin: 0 .2rem;
+          cursor: pointer;
+        }
+      }
+
+      .app{
+        margin-top: -5rem;
+        margin-right: 7rem;
+
+        img{
+          margin-top: .5rem;
+          margin-right: .5rem;
+        }
+      }
+    }
+  }
+}
