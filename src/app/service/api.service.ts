@@ -45,10 +45,4 @@ export class ApiService {
   getCategoriesList():Observable<ParentCategory>{
     return this.http.get<ParentCategory>(`${baseUrl}/category/${storeId}/0`);
   }
-
-  logout(){
-    localStorage.removeItem('Token');
-    this.router
-  }
-
 }

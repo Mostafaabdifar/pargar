@@ -16,19 +16,19 @@
     <nav class="header-leftSide">
       <ul class="header-navbar">
         <li><a class="navbar-item white-btn" (click)="teach()">در پرگار درس بدهید</a></li>
-        <li><a class="navbar-item green-btn account" *ngIf="current == 0">حساب من <i class="fa fa-chevron-down"></i></a>
-          <a class="navbar-item green-btn account" *ngIf="current == -1">کاربر اشتراکی شوید!</a>
+        <li><a class="navbar-item green-btn account" *ngIf="current == 0 && !existToken">حساب من <i class="fa fa-chevron-down"></i></a>
+          <a class="navbar-item green-btn account" *ngIf="current == -1 || existToken">کاربر اشتراکی شوید!</a>
           <div class="dropdown" *ngIf="current == 0">
             <a class="dropdown-login" (click)="login()">ورود/ثبت نام رایگان</a>
             <a>کد هدیه</a>
           </div>
         </li>
         <li>
-          <img [src]="avatar" class="iconProfile" alt="profile" *ngIf="current == -1">
+          <img [src]="avatar" class="iconProfile" alt="profile" *ngIf="current == -1 || existToken">
           <div class="dropdown d-profile">
-            <a>پروفایل</a>
+            <a (click)="getProfile()">پروفایل</a>
             <a>راهنما</a>
-            <a>خروج از پرگار</a>
+            <a (click)="logout()">خروج از پرگار</a>
             <a>کاربر اشتراکی شوید</a>
           </div>
         </li>
@@ -50,4 +50,3 @@
     </form>
   </div>
 </div>
-<!-- <app-profile [user]="user" *ngIf="false"></app-profile> -->

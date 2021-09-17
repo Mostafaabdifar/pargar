@@ -1,27 +1,28 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnChanges,OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
-import { Token } from '../../model/login.model';
 import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { HomeItem, ParentCategory } from 'src/app/model/category.model';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+// import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-main-header',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit,OnChanges {
   avatar:string = "";
+  existToken:boolean | undefined;
   tokenForm: FormGroup = new FormGroup({})
   step1: FormGroup = new FormGroup({});
   step2: FormGroup = new FormGroup({});
   current: number = 0;
-  user: Token | undefined;
   homeItem:HomeItem[] = [];
   parentItem:ParentCategory[] = [];
+  errorApi:string = "";
 
   constructor(
     private api: ApiService,
@@ -30,15 +31,12 @@ export class MainComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-
-
   ngOnInit(): void {
     this.initForm();
     this.api.getHomeData().subscribe(
       data =>{
         console.log("home data:",data)
         this.homeItem = data.homeitem;
-
       }
     )
     this.api.getCategoriesList().subscribe(
@@ -47,6 +45,13 @@ export class MainComponent implements OnInit {
         // this.parentItem = response;
       }
     )
+  }
+  ngOnChanges():void{
+    if(localStorage.getItem('Token') === ""){
+      this.current = 0;
+    }else{
+      this.current = -1;
+    }
   }
 
   initForm(): void {
@@ -74,7 +79,6 @@ export class MainComponent implements OnInit {
       verification_code: new FormControl('', Validators.required),
       nickname: new FormControl('', )
     });
-
   }
 
   login() {
@@ -82,8 +86,9 @@ export class MainComponent implements OnInit {
   }
 
   logout(){
-    this.api.logout();
-    this.router.navigate(['/login'])
+    localStorage.clear();
+    localStorage.removeItem("Token");
+    window.location.reload();
   }
 
   teach() {
@@ -96,7 +101,10 @@ export class MainComponent implements OnInit {
         this.current = 2;
         this.step2.get('mobile')?.patchValue(this.step1.value.mobile);
       },
-      error => {
+      (error) => {
+        if(error.status == 406){
+          this.errorApi = "لطفا شماره موبایل خود را با فرمت صحیح وارد نمایید.";
+        }
         this.current = 1;
         this.openDialog();
       }
@@ -108,20 +116,26 @@ export class MainComponent implements OnInit {
       data => {
         this.current = -1; //login profile
         this.local.Token = data.token;
-        this.getProfile();
-        this.user = data;
+        this.Profile();
       },
-      error => {}
+      (error) => {
+        if(error.status == 401){
+          this.errorApi = "کد نادرست است";
+        }
+        this.openDialog();
+      }
     )
   }
 
-  getProfile() {
+  Profile() {
     this.api.getUserProfile().subscribe(
       data => {
-        console.log(data);
         this.avatar = data.avatar;
       }
     )
+  }
+  getProfile(){
+    this.router.navigate(['/profile'])
   }
 
   showOverlay() {
@@ -134,9 +148,7 @@ export class MainComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogComponent, {
-      data: {
-        animal: 'panda'
-      }
+      data: { error:this.errorApi },
     });
   }
 }

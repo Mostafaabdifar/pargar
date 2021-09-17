@@ -35,7 +35,7 @@ export class HttpInterceptorService implements HttpInterceptor {
           console.log(event)
         },
         error =>{
-          console.log(error.error.error);
+          return error;
   
         }
       )
