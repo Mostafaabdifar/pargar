@@ -6,22 +6,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './profile/profile/profile.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { MenuComponent } from './components/menu/menu.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
 import { ProfileModule } from './profile/profile.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    MenuComponent,
     Page404Component,
     SpinnerComponent,
   ],
@@ -29,12 +23,11 @@ import { ProfileModule } from './profile/profile.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     LayoutModule,
-    ProfileModule
+    ProfileModule,
+    HomeModule
 
   ],
   providers: [

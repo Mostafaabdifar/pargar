@@ -1,7 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { signUp } from '../model/login.model';
 import { finalize, tap } from 'rxjs/operators'
 import { LocalStorageService } from './local-storage.service';
 import { SpinnerService } from './spinner.service';
@@ -17,7 +16,6 @@ export class HttpInterceptorService implements HttpInterceptor {
   ) { }
 
   intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>{
-
     const token = this.local.Token;
     if(token){
       req = req.clone({
@@ -32,7 +30,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       finalize(()=> this.loader.hide()),
       tap(
         event =>{
-          console.log(event)
+          return event
         },
         error =>{
           return error;

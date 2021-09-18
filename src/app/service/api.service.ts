@@ -14,17 +14,12 @@ const storeId:number = environment.storeID;
   providedIn: 'root'
 })
 export class ApiService {
-  // private currentUserSubject: BehaviorSubject<Token>;
-  // public currentUser: Observable<Token>;
 
   constructor(
     private http :HttpClient,
     private router:Router,
     private local:LocalStorageService
-  ) { 
-    // this.currentUserSubject = new BehaviorSubject<Token>(JSON.parse(localStorage.getItem('Token') | undefined));
-    // this.currentUser = this.currentUserSubject.asObservable();
-  }
+  ) {}
 
   getVerification(data:signUp):Observable<Sms>{
   return this.http.post<Sms>(`${baseUrl}/mobile_login_step1/${storeId}`,data);
@@ -44,5 +39,11 @@ export class ApiService {
 
   getCategoriesList():Observable<ParentCategory>{
     return this.http.get<ParentCategory>(`${baseUrl}/category/${storeId}/0`);
+  }
+
+  logout(){
+    localStorage.clear();
+    localStorage.removeItem("Token");
+    window.location.reload();
   }
 }

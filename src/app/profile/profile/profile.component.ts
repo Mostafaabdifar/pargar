@@ -1,7 +1,7 @@
-import { LocalStorageService } from '../../service/local-storage.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { Profile } from 'src/app/model/client.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,11 +10,12 @@ import { Profile } from 'src/app/model/client.model';
 })
 export class ProfileComponent implements OnInit {
 
-  user:Profile | undefined 
+  user:Profile | undefined ;
+  Tab:boolean = true;
 
   constructor(
-    private local:LocalStorageService,
-    private api :ApiService
+    private api :ApiService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +26,16 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-  logout(){
-    this.local.setItem("token","");
+  
+  changeTab(){
+    this.Tab = !this.Tab;
+    return this.Tab;
   }
-
+  logout(){
+    this.api.logout();
+  }
+  edit(){
+    this.router.navigate(['/profile/edit'])
+  }
+  
 }

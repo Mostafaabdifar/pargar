@@ -1,1 +1,21 @@
-<p>edit works!</p>
+<div class="edit">
+  <section class="edit-container">
+    <div class="edit-heading">
+      <h3>ویرایش حساب کاربری</h3>
+      <img src="../../../assets/img/download.svg" alt="userIcon">
+      <div class="upload">
+        <a href=""></a>
+        <input type="file">
+      </div>
+    </div>
+    <form [formGroup]="info" (ngSubmit)="save()">
+      <label for="name">نام نمایشی</label>
+      <input type="text" placeholder="نام نمایشی">
+      <label for="name">شماره تلفن همراه</label>
+      <input type="text" placeholder="شما هنوز شماره موبایل وارد نکرده اید">
+      <label for="name">پست الکترونیک</label>
+      <input type="text" placeholder="شما هنوز ایمیل خود را وارد نکرده اید">
+      <button class="navbar-item green-btn">ذخیره تغییرات</button>
+    </form>
+  </section>
+</div>

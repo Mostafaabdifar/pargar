@@ -1,4 +1,4 @@
-import { Component,OnChanges,OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit,OnChanges {
+export class MainComponent implements OnInit {
   avatar:string = "";
   existToken:boolean | undefined;
   tokenForm: FormGroup = new FormGroup({})
@@ -35,22 +35,20 @@ export class MainComponent implements OnInit,OnChanges {
     this.initForm();
     this.api.getHomeData().subscribe(
       data =>{
-        console.log("home data:",data)
         this.homeItem = data.homeitem;
       }
     )
     this.api.getCategoriesList().subscribe(
       response =>{
-        console.log("response:",response);
+        console.log(response)
         // this.parentItem = response;
       }
     )
-  }
-  ngOnChanges():void{
-    if(localStorage.getItem('Token') === ""){
-      this.current = 0;
+    if(localStorage.getItem('token')){
+      this.current = -1
+      this.Profile()
     }else{
-      this.current = -1;
+      this.current = 0;
     }
   }
 
@@ -86,9 +84,7 @@ export class MainComponent implements OnInit,OnChanges {
   }
 
   logout(){
-    localStorage.clear();
-    localStorage.removeItem("Token");
-    window.location.reload();
+    this.api.logout();
   }
 
   teach() {
@@ -104,6 +100,8 @@ export class MainComponent implements OnInit,OnChanges {
       (error) => {
         if(error.status == 406){
           this.errorApi = "لطفا شماره موبایل خود را با فرمت صحیح وارد نمایید.";
+        }else if(error.status == 502 || error.status == 504){
+          this.errorApi = "لطفا مجدد تلاش کنید";
         }
         this.current = 1;
         this.openDialog();
@@ -138,12 +136,12 @@ export class MainComponent implements OnInit,OnChanges {
     this.router.navigate(['/profile'])
   }
 
-  showOverlay() {
-    this.current = 0;
-  }
-
   resendCode(){
     this.getVerification();
+  }
+
+  showOverlay() {
+    this.current = 0;
   }
 
   openDialog() {
@@ -152,4 +150,3 @@ export class MainComponent implements OnInit,OnChanges {
     });
   }
 }
-

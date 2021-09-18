@@ -1,5 +1,6 @@
 @import "/src/app/sass/color";
 @import "/src/app/sass/mixin";
+@import "/src/app/sass/animation";
 
 .container {
   width: 100%;
@@ -96,7 +97,7 @@
           text-align: center;
           font-size: 1.2rem;
 
-          &.d-profile{
+          &.d-profile {
             bottom: -12.5rem;
             right: -4.3rem;
           }
@@ -133,7 +134,7 @@
     .navbar-item {
       @include fontStyle(1.5rem, normal);
 
-      &>i{
+      &>i {
         transform: translateY(.2rem);
       }
 
@@ -141,7 +142,8 @@
         display: block;
       }
     }
-    .resend-code{
+
+    .resend-code {
       @include fontStyle(1.4rem, normal);
       padding-top: 1rem;
       background-color: transparent;
@@ -156,7 +158,7 @@
       cursor: pointer;
       transform: translateY(.3rem);
       margin-left: 3rem;
-      
+
       &:hover+.dropdown {
         display: block;
       }
@@ -171,59 +173,65 @@
       background-color: rgba(0, 0, 0, .4);
     }
 
-    .form-signUp {
-      width: 50rem;
-      background: $white;
-      border-radius: .5rem;
-      padding: 2rem;
-      margin: 0 1rem;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .2), .1rem .2rem .2rem rgba(0, 0, 0, .2);
+    .form-section {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
 
-      &>p {
-        font-size: 2rem;
-        font-family: IranSans-Normal;
-      }
-
-      .heading-signUp {
-        @include fontStyle(1.8rem, bold);
-        margin-left: auto;
-      }
-
-      .signUp-input {
-        @include fontStyle(1.8rem, normal);
-        width: 100%;
-        margin: 1.5rem;
-        padding: 1rem;
+      .form-signUp {
+        width: 50rem;
+        background: $white;
         border-radius: .5rem;
-        font-size: 1.8rem;
-        border: .2rem solid $border;
-        outline: none;
+        padding: 2rem;
+        margin: 0 1rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .2), .1rem .2rem .2rem rgba(0, 0, 0, .2);
+        animation-name: moveInBottom;
+        animation-duration: .5s;
+        animation-timing-function: ease-out;
 
-        &:focus {
-          border: .2rem solid $primary_color;
+        &>p {
+          font-size: 2rem;
+          font-family: IranSans-Normal;
         }
 
-        &[type=number] {
-          -moz-appearance: textfield;
+        .heading-signUp {
+          @include fontStyle(1.8rem, bold);
+          margin-left: auto;
         }
 
-        &[type=number]::-webkit-outer-spin-button,
-        &[type=number]::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0
-        }
+        .signUp-input {
+          @include fontStyle(1.8rem, normal);
+          width: 100%;
+          margin: 1.5rem;
+          padding: 1rem;
+          border-radius: .5rem;
+          font-size: 1.8rem;
+          border: .2rem solid $border;
+          outline: none;
 
-        &::placeholder {
-          @include fontStyle(1.7rem, normal);
+          &:focus {
+            border: .2rem solid $primary_color;
+          }
+
+          &[type=number] {
+            -moz-appearance: textfield;
+          }
+
+          &[type=number]::-webkit-outer-spin-button,
+          &[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0
+          }
+
+          &::placeholder {
+            @include fontStyle(1.7rem, normal);
+          }
         }
       }
     }

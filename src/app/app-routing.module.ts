@@ -1,17 +1,16 @@
+import { SliderComponent } from './home/slider/slider.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Page404Component } from './components/page404/page404.component';
-import { MainComponent } from './layout/MainHeader/main.component';
-import { ProfileComponent } from './profile/profile/profile.component';
-import { AuthGuardService } from './service/auth-guard.service';
-import { ResolverService } from './service/resolver.service';
 
 const routes: Routes = [
   {
+    path:"",
+    component:SliderComponent
+  },
+  {
     path:"profile",
-    component:ProfileComponent,
-    canActivate:[AuthGuardService],
-    resolve:[ResolverService]
+    loadChildren: () => import('./profile/profile.module').then(mod => mod.ProfileModule),
   },
   {
     path:"**",

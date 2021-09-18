@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { LoaderState } from './model/spinner.model';
-import { SpinnerService } from './service/spinner.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
