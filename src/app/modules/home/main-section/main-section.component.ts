@@ -15,11 +15,17 @@ export class MainSectionComponent implements OnInit {
 
 
   constructor(
-    private route:ActivatedRoute,
     private api:ApiService
 
   ) { }
 
   ngOnInit(): void {
+    // this.api.getHomeData().subscribe(
+    //   data =>{
+    //     this.parent = data.parent_categories;
+    //     this.home = data.homeitem;
+    //     this.header = data.headeritem;
+    //   }
+    // )
   }
 }

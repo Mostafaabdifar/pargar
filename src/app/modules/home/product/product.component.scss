@@ -1,0 +1,119 @@
+@import "../../../../assets/sass/color";
+@import "../../../../assets/sass/mixin";
+
+.product {
+  margin: 2rem 1rem 0 1rem;
+  background: transparent;
+  height: auto;
+
+  .product-container {
+    width: 100%;
+
+    .product-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 1.5rem;
+
+      h2 {
+        @include fontStyle(1.7rem, bold);
+        color: $label;
+      }
+
+      a {
+        @include fontStyle(1.3rem, bold);
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+
+    .product-slider {
+      width: 100%;
+    }
+
+    .product-item {
+      margin: .5rem;
+      padding: 0;
+      background-color: $white;
+      border-radius: 1rem;
+      box-shadow: 0 .1rem .4rem 0 rgb(0 0 0 / 4%);
+      border: .1rem solid rgba(0, 0, 0, 0.09);
+      height: 30rem;
+
+      .product-img {
+        background-size: 10rem;
+        background-position: center;
+
+        img {
+          width: 100%;
+          overflow: visible;
+          border-radius: 1rem 1rem 0 0;
+        }
+      }
+
+      .info {
+        padding: 1rem;
+
+        .title {
+          @include fontStyle(1.4rem, normal);
+          padding: .5rem;
+          margin-bottom: 3rem;
+          display: block;
+        }
+
+        .producer {
+          display: block;
+          color: $view;
+          @include fontStyle(1.2rem, normal);
+          padding: 0 .5rem;
+
+        }
+
+
+      }
+    }
+  }
+}
+
+
+::ng-deep {
+  .owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .owl-carousel .nav-button {
+    cursor: pointer;
+    position: absolute;
+    top: 12rem;
+  }
+  
+  .owl-carousel .owl-prev {
+    left: -50px;
+  }
+  .owl-carousel .owl-next {
+    right: -50px;
+  }
+  .owl-theme .owl-nav [class*=owl-]{
+    font-size: 8rem;
+    background: transparent;
+    color: $label;
+    &:hover{
+      background-color: transparent;
+      color: $label;
+    }
+  }
+  .owl-stage {
+    float: left;
+  }
+
+  .owl-nav {
+    display: block;
+  }
+
+  .owl-item {
+    margin: 2rem 0;
+    width: 100%;
+    height: auto;
+  }
+}

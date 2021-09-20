@@ -51,6 +51,26 @@ html {
   }
 }
 
+//subscribe//
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+
+  // margin-top: 2rem;
+  i {
+    color: $view;
+    font-size: 1.3rem;
+    width: 1.3rem;
+  }
+
+  span {
+    padding: 0 0.5rem;
+  }
+}
+
 //// font ////
 
 @font-face {

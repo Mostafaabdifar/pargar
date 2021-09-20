@@ -9,6 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { ProductComponent } from './product/product.component';
+import { SingleSectionComponent } from './single-section/single-section.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { HomeRoutingModule } from './home-routing.module';
     MainSectionComponent,
     SliderComponent,
     MenuComponent,
+    ProductComponent,
+    SingleSectionComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,23 @@
+@import "../../../../assets/sass/color";
+@import "../../../../assets/sass/mixin";
+
+.single-section{
+  background-color: $white;
+  padding: 0 .5rem;
+
+  .single-container{
+    width: 100%;
+    padding: 2.5rem;
+    background: $white;
+    border-radius: 1rem;
+    box-shadow: 0rem .1rem .4rem 0rem rgb(0 0 0 / 4%);
+    border: .1rem solid rgba(0, 0, 0, 0.09);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .right-section{
+      
+    }
+  }
+}
