@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Page404Component } from './components/page404/page404.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { LayoutModule } from './layout/layout.module';
-import { ProfileModule } from './profile/profile.module';
-import { HomeModule } from './home/home.module';
+import { LayoutModule } from './modules/layout/layout.module';
+import { ProfileModule } from './modules/profile/profile.module';
+import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
   declarations: [

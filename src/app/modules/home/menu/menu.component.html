@@ -1,0 +1,10 @@
+<section class="category-menu">
+  <div class="category-container">
+    <nav class="navbar">
+      <ul class="category-item" >
+        <li *ngFor="let item of categoryItem"><a>{{item.title}}</a></li>
+        <li *ngFor="let child of categoryItem?.childs"><a href="">{{child.title}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>

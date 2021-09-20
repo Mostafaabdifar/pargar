@@ -83,9 +83,9 @@ export interface Child {
   is_enable: boolean;
   is_visible: boolean;
   parent: number;
-  childs: Child2[];
+  childs: secondChild[];
 }
-export interface Child2 {
+export interface secondChild {
   id: number;
   is_default: boolean;
   title: string;

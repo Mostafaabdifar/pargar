@@ -1,4 +1,4 @@
-@import "/src/app/sass/color";
+@import "../../../assets/sass/color";
 
 .loader{
   position: fixed;
@@ -11,5 +11,4 @@
   align-items: center;
   top: 0;
   bottom: 0;
-  // transform: translateY(-15%);
 }

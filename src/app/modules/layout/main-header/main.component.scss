@@ -1,0 +1,246 @@
+@import "../../../../assets/sass/color";
+@import "../../../../assets/sass/mixin";
+@import "../../../../assets/sass/animation";
+
+.container {
+  width: 100%;
+  background-color: $light-gray;
+
+  .header {
+    background-color: $white;
+    padding: 2rem 0;
+    box-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &-leftSide {
+      margin: 0 5rem;
+    }
+
+    &-rightSide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 3rem;
+      list-style: none;
+
+      .logo {
+        width: 7rem;
+        padding-left: 2rem;
+        border-left: .2rem solid $border;
+        margin: 0 1rem;
+      }
+
+      .header-item {
+        @include fontStyle(1.5rem, normal);
+        color: #757575;
+        padding: 0 1rem;
+        text-decoration: none;
+      }
+
+      .form-search {
+        position: relative;
+
+        .search-icon {
+          position: absolute;
+          right: 1.5rem;
+          top: 1rem;
+          color: $primary_color;
+          transform: rotate(90deg);
+          font-size: 2rem
+        }
+
+        .header-search {
+          @include fontStyle(1.5rem, normal);
+          padding: 1rem 4rem;
+          width: 30vw;
+          border: .2rem solid $border;
+          border-radius: 2.5rem;
+          outline: none;
+
+          &:focus {
+            border: .2rem solid $primary_color;
+          }
+
+          &::placeholder {
+            font-family: IranSans-Normal;
+          }
+        }
+      }
+
+    }
+
+    &-navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      font-family: IranSans-Normal;
+
+      &>li {
+        position: relative;
+
+        &>.dropdown {
+          display: none;
+          background-color: $white;
+          position: absolute;
+          bottom: 1rem;
+          z-index: 10000;
+          width: 12rem;
+          padding: .5rem;
+          border-radius: .4rem;
+          box-shadow: 0 .2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+          bottom: -7.5rem;
+          right: .3rem;
+          text-align: center;
+          font-size: 1.2rem;
+
+          &.d-profile {
+            bottom: -12.5rem;
+            right: -4.3rem;
+          }
+
+          &:hover {
+            display: block;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            background-color: $white;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            transform: rotate(45deg);
+            top: -.5rem;
+            right: 5.5rem;
+          }
+
+          &>a {
+            display: block;
+            cursor: pointer;
+            padding: .5rem;
+          }
+        }
+      }
+    }
+
+    li:not(:last-child) {
+      margin-left: 2.5rem;
+    }
+
+    .navbar-item {
+      @include fontStyle(1.5rem, normal);
+
+      &>i {
+        transform: translateY(.2rem);
+      }
+
+      &:hover+.dropdown {
+        display: block;
+      }
+    }
+
+    .resend-code {
+      @include fontStyle(1.4rem, normal);
+      padding-top: 1rem;
+      background-color: transparent;
+      border: none;
+      color: $primary_color;
+      cursor: pointer;
+    }
+
+    .iconProfile {
+      width: 3.5rem;
+      height: 3.5rem;
+      cursor: pointer;
+      transform: translateY(.3rem);
+      margin-left: 3rem;
+
+      &:hover+.dropdown {
+        display: block;
+      }
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .4);
+      z-index: 50;
+    }
+
+    .form-section {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+
+      .form-signUp {
+        width: 50rem;
+        background: $white;
+        border-radius: .5rem;
+        padding: 2rem;
+        margin: 0 1rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .2), .1rem .2rem .2rem rgba(0, 0, 0, .2);
+        animation-name: moveInBottom;
+        animation-duration: .5s;
+        animation-timing-function: ease-out;
+
+        &>p {
+          font-size: 2rem;
+          font-family: IranSans-Normal;
+        }
+
+        .heading-signUp {
+          @include fontStyle(1.8rem, bold);
+          margin-left: auto;
+        }
+
+        .signUp-input {
+          @include fontStyle(1.8rem, normal);
+          width: 100%;
+          margin: 1.5rem;
+          padding: 1rem;
+          border-radius: .5rem;
+          font-size: 1.8rem;
+          border: .2rem solid $border;
+          outline: none;
+
+          &:focus {
+            border: .2rem solid $primary_color;
+          }
+
+          &[type=number] {
+            -moz-appearance: textfield;
+          }
+
+          &[type=number]::-webkit-outer-spin-button,
+          &[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0
+          }
+
+          &::placeholder {
+            @include fontStyle(1.7rem, normal);
+          }
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  background-color: $primary_color;
+
+}

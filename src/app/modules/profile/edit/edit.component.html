@@ -1,0 +1,21 @@
+<div class="edit">
+  <section class="edit-container">
+    <div class="edit-heading">
+      <h3>ویرایش حساب کاربری</h3>
+      <img [src]="data?.avatar" alt="userIcon">
+      <span class="changeProfile">
+        <input type="file" accept="image/*" (change)="selectFile($event)">
+        <a class="navbar-item green-btn" (click)="upload()">بارگذاری</a>
+      </span>
+    </div>
+    <form [formGroup]="info" (ngSubmit)="save()" class="form-edit">
+      <label for="name">نام نمایشی</label>
+      <input type="text" placeholder="نام نمایشی">
+      <label for="name">شماره تلفن همراه</label>
+      <input type="text" placeholder="شما هنوز شماره موبایل وارد نکرده اید">
+      <label for="name">پست الکترونیک</label>
+      <input type="text" placeholder="شما هنوز ایمیل خود را وارد نکرده اید">
+      <button class="navbar-item green-btn">ذخیره تغییرات</button>
+    </form>
+  </section>
+</div>

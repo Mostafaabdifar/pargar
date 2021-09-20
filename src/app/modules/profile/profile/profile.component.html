@@ -1,0 +1,39 @@
+<section class="profile">
+  <div class="layout">
+    <div class="container">
+      <div class="header">
+        <div class="section icon">
+          <div class="icon-profile">
+            <img class="shape" [src]="user?.avatar" alt="profile">
+            <h1>{{user?.nickname}}</h1>
+          </div>
+          <ul class="list-profile">
+            <li>
+              <a class="favorites" (click)="changeTab()" [ngClass]="{'active-link': Tab === true}">علاقه مندی ها</a>
+            </li>
+            <li>
+              <a class="status" (click)="changeTab()" [ngClass]="{'active-link': Tab === false}">وضعیت اشتراک</a>
+            </li>
+          </ul>
+        </div>
+        <div class="section buttons">
+          <button class="button edit" (click)=edit()>ویرایش اطلاعات کاربری</button>
+          <button class="button vip">کاربر ویژه شوید</button>
+          <button (click)="logout()" class="exit"><img src="../../../assets/img/exit.svg" alt="exit">خروج از حساب کاربری
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="tab-content">
+      <div class="field-content" *ngIf="Tab" [ngClass]="{'active': Tab === true}">
+        <p>شما هیچ محصولی را نشان نکرده اید.</p>
+      </div>
+      <div class="field-content" *ngIf="!Tab" [ngClass]="{'active': Tab === false}">
+        <p>شما مشترک پرگار نیستید</p>
+        <button class="navbar-item green-btn" href="#">کاربر ویژه شوید!</button>
+      </div>
+    </div>
+  </div>
+</section>

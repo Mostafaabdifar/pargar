@@ -1,9 +1,0 @@
-@import "../../sass/color";
-@import "../../sass/mixin";
-.error{
-  @include fontStyle(1.3rem,normal);
-  width: 30rem;
-  padding: 1.5rem; 
-  text-align: center;
-  color: $red;
-}

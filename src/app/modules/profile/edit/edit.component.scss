@@ -1,0 +1,76 @@
+@import "../../../../assets/sass/color";
+@import "../../../../assets/sass/mixin";
+
+.edit {
+  margin: 3rem 0 0 0;
+  width: 100%;
+  height: auto;
+  background-color: $light-gray;
+
+
+  .edit-container {
+    width: 117rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+    .edit-heading {
+      display: flex;
+      flex-wrap: wrap;
+
+      h3 {
+        @include fontStyle(2.5rem, bold);
+        width: 100%;
+        margin: 1rem;
+      }
+
+      img {
+        width: 16rem;
+        padding: 2rem 0;
+      }
+
+      .changeProfile {
+        transform: translateY(15rem);
+        a {
+          margin-right: 1rem;
+          border-radius: 1rem;
+        }
+
+        input {
+          margin-right: 1rem;
+          border: .2rem solid $primary-color;
+          padding: 1rem;
+          width: 70%;
+          border-radius: 1rem;
+        }
+      }
+    }
+
+    .form-edit {
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        @include fontStyle(1.8rem, bold);
+        width: 100%;
+        color: $label;
+        padding: 2rem 0;
+      }
+
+      input {
+        @include fontStyle(1.8rem, normal);
+        width: 32rem;
+        background-color: $white;
+        padding: 1rem;
+        border: .2rem solid $border;
+        border-radius: 1rem;
+      }
+
+      button {
+        width: 20%;
+        margin: 2rem 4rem;
+      }
+    }
+  }
+}

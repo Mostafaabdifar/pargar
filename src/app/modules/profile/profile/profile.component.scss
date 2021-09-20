@@ -1,0 +1,153 @@
+@import"../../../../assets/sass/color";
+@import"../../../../assets/sass/mixin";
+
+.profile {
+  width: 100%;
+
+  .layout {
+    background-color: $primary-color;
+  }
+
+  .container {
+    width: 117rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .header {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+  }
+
+  .section {
+    width: 40rem;
+    @include flexBox();
+    flex-direction: column;
+    padding: 3rem 0;
+  }
+
+  .icon {
+    align-items: flex-start;
+  }
+
+  .buttons {
+    align-items: flex-end;
+  }
+
+  .icon-profile {
+    @include flexBox();
+
+    &>h1 {
+      margin-right: 1rem;
+      @include fontStyle(4rem, bold);
+      color: $white;
+      white-space: normal;
+    }
+  }
+
+  .list-profile {
+    list-style: none;
+    @include flexBox();
+    justify-content: space-around;
+    transform: translateY(3.5rem);
+    align-self: center;
+    width: 100%;
+    margin-right: 3rem;
+
+    li {
+      @include fontStyle(1.7rem, normal);
+    }
+
+    a {
+      text-decoration: none;
+      padding-bottom: .8rem;
+      color: $white;
+      cursor: pointer;
+
+
+    }
+  }
+
+  .shape {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .button {
+    padding: 1rem;
+    width: 50%;
+    border-radius: 2rem;
+    border: .2rem solid $primary-color;
+    @include fontStyle(1.5rem, normal);
+    margin: .5rem;
+    cursor: pointer;
+
+    &.edit {
+      background-color: transparent;
+      color: $white;
+      border: .2rem solid $white;
+
+      &:hover {
+        background-color: $white;
+        color: $primary-color;
+      }
+    }
+
+    &.vip {
+      color: $primary-color;
+      @include fontStyle(1.5rem, normal);
+      background-color: $white;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+        border: .2rem solid $white;
+      }
+    }
+  }
+
+  .exit {
+    background-color: transparent;
+    border: none;
+    @include fontStyle(1.5rem, normal);
+    color: $white;
+    @include flexBox();
+    margin-left: 2.5rem;
+    cursor: pointer;
+  }
+
+  .tab-content {
+    padding: 2rem 2.5rem;
+
+    .field-content {
+      min-height: 40rem;
+      @include fontStyle(1.6rem, normal);
+      display: none;
+      visibility: hidden;
+
+      &.active {
+        display: block;
+        visibility: visible;
+      }
+
+      button {
+        margin: 1rem;
+        padding: .5rem 5rem;
+
+        &:hover {
+          background-color: transparent;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .active-link {
+    border-bottom: .4rem solid $white;
+  }
+
+
+}

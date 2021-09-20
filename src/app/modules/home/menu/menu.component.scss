@@ -1,0 +1,41 @@
+@import "../../../../assets/sass/color";
+@import "../../../../assets/sass/mixin";
+
+.category-menu {
+  background-color: $white;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+
+
+  .category-container {
+    width: 117rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    display: flex;
+    z-index: 12;
+    .category-item {
+      list-style: none;
+      flex-wrap: wrap;
+      @include flexBox();
+      text-align: center;
+
+      li {
+        padding: 1rem 2rem;
+
+        a {
+          text-decoration: none;
+          @include fontStyle(1.3rem, bold);
+
+          &:hover {
+            color:$primary-color;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
