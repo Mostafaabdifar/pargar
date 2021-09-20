@@ -20,8 +20,6 @@ export class MainComponent implements OnInit {
   step1: FormGroup = new FormGroup({});
   step2: FormGroup = new FormGroup({});
   current: number = 0;
-  homeItem:HomeItem[] = [];
-  parentItem:ParentCategory[] = [];
   errorApi:string = "";
   isLogInUser: string | undefined;
 
@@ -34,18 +32,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    // // this.checkToken();
-    // this.api.getHomeData().subscribe(
-    //   data =>{
-    //     this.homeItem = data.homeitem;
-    //   }
-    // )
-    // this.api.getCategoriesList().subscribe(
-    //   response =>{
-    //     console.log(response)
-    //     // this.parentItem = response;
-    //   }
-    // )
   }
 
   checkToken(){

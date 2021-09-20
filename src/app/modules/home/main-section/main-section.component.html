@@ -1,8 +1,10 @@
 <div class="main">
-  <app-slider></app-slider>
-  <app-menu [category]="parent"></app-menu>
+  <app-slider [headerList]="header"></app-slider>
+  <app-menu [ngClass]="{fixNav : fix}" ></app-menu>
   <div class="main-container">
+    <app-product [homeList]="home"></app-product>
+    <app-single-section [itemProduct]="itemProduct"></app-single-section>
     <app-product></app-product>
-    <app-single-section></app-single-section>
+    <app-feature [itemProduct]="itemProduct"></app-feature>
   </div>
 </div>

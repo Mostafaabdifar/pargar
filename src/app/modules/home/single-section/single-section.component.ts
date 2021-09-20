@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/category.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-single-section',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-section.component.scss']
 })
 export class SingleSectionComponent implements OnInit {
+  @Input("itemProduct") itemProduct:Product[] = [];
 
   constructor() { }
 

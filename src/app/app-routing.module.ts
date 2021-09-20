@@ -6,7 +6,7 @@ import { MainSectionComponent } from './modules/home/main-section/main-section.c
 
 const routes: Routes = [
   {
-    path:"",
+    path:'',
     // loadChildren: () => import('./modules/home/home.module').then(mod => mod.HomeModule),
     component:MainSectionComponent
   },

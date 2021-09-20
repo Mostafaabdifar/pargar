@@ -9,6 +9,7 @@ import { ProductItem } from 'src/app/model/category.model';
 })
 export class SliderComponent  {
 
+  @Input("headerList") header:ProductItem[] =[];
 
   customOptions: OwlOptions = {
     loop: true,
@@ -39,11 +40,4 @@ export class SliderComponent  {
     },
     nav: true
   }
-   
-    slides = [
-      {id: "1", img: "../../../assets/img/asdasd.jpg"},
-      {id: "2", img: "../../../assets/img/3.jpg"},
-      {id: "3", img: "../../../assets/img/2.jpg"},
-      {id: "4", img: "../../../assets/img/1.jpg"},
-    ];
 }

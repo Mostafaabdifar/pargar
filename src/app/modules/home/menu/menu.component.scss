@@ -4,8 +4,9 @@
 .category-menu {
   background-color: $white;
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0rem 1.5rem;
   margin: 1rem 0;
+  box-shadow: 0rem .1rem .1rem 0rem #e0e0e0;
 
 
   .category-container {
@@ -16,26 +17,69 @@
 
   .navbar {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: ro;
+    margin-right: -4rem;
     z-index: 12;
-    .category-item {
+
+    ul {
       list-style: none;
+      display: block;
+    }
+
+    .category-item {
       flex-wrap: wrap;
       @include flexBox();
       text-align: center;
 
       li {
+        display: inline-block;
+        border-bottom: .2rem solid $white;
         padding: 1rem 2rem;
+        position: relative;
+
+        &:hover {
+          border-bottom: .2rem solid $primary-color;
+        }
+
+
+        &:hover .category-child {
+          display: block;
+        }
+
+        .child-container {
+          width: 117rem;
+          margin: 0 auto;
+        }
+        .category-child {
+          width: 117rem;
+          position: absolute;
+          top: 4.2rem;
+          right: 0;
+          left: 0;
+          padding: 0 1rem;
+          margin: 0 auto;
+          box-shadow: 0rem .1rem .1rem 0rem #e0e0e0;
+          background: $white;
+          display: none;
+
+          a{
+            color: $black;
+          }
+        }
 
         a {
           text-decoration: none;
           @include fontStyle(1.3rem, bold);
 
           &:hover {
-            color:$primary-color;
+            color: $primary-color;
             cursor: pointer;
           }
         }
       }
     }
+
   }
 }

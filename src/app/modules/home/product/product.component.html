@@ -1,24 +1,24 @@
-<section class="product">
-  <div class="product-container">
-    <div class="product-title">
-      <h2>بسازید و بفروشید</h2>
+<section class="product" *ngFor="let item of home">
+  <div class="product-container" >
+    <div class="product-title" >
+      <h2>{{item.title}}</h2>
       <a href="">مشاهده همه</a>
     </div>
-    <div class="slider">
-      <owl-carousel-o [options]="product">
-        <ng-container *ngFor="let slide of slides">
-          <ng-template carouselSlide [id]="slide.id">
+    <div class="slider" >
+      <owl-carousel-o [options]="product" >
+        <ng-container *ngFor="let product of item.products" >
+          <ng-template carouselSlide >
             <div class="product-item">
               <div class="product-img">
-                <img [src]="slide.img">
+                <img [src]="product.feature_avatar.xhdpi">
               </div>
               <div class="info">
-                <p class="title">اموزش ساخت جعبه </p>
+                <p class="title">{{product.name}}</p>
                 <p class="producer">پرگار</p>
                 <div class="subscribe">
                   <div class="view">
                     <i class="fa fa-eye"></i>
-                    <span>115515</span>
+                    <p>{{ product.total_view }}</p>
                   </div>
                   <span class="rate">
                     <i class="fa fa-star"></i>

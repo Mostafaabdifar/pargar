@@ -33,11 +33,11 @@ export class ApiService {
   }
 
   getHomeData():Observable<MainObject>{
-    return this.http.get<MainObject>(`${baseUrl}/homeitem/${storeId}`);
+    return this.http.get<MainObject>(`${baseUrl}/store/${storeId}`);
   }
 
-  getCategoriesList():Observable<ParentCategory>{
-    return this.http.get<ParentCategory>(`${baseUrl}/category/${storeId}/0`);
+  getCategoriesList():Observable<ParentCategory[]>{
+    return this.http.get<ParentCategory[]>(`${baseUrl}/category/${storeId}/0`);
   }
 
   getFeature(product_id:number):Observable<ProductItem>{
@@ -47,7 +47,7 @@ export class ApiService {
   logout(){
     localStorage.clear();
     localStorage.removeItem("Token");
-    // window.location.reload();  
+    window.location.reload();  
     // this.logInUser.next('');
   }
   

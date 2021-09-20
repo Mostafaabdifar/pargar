@@ -1,0 +1,54 @@
+@import"../../../../assets/sass/color";
+@import"../../../../assets/sass/mixin";
+
+a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:$label;
+}
+.feature{
+  padding: 1rem .5rem;
+  background-color: $main-bg;
+
+  .feature-container{
+    width: 100%;
+  
+    .avatar{
+      position: relative;
+
+      img{
+        border-radius: 0.2rem;
+        min-height: 16.6rem;
+        background-size: 10rem;
+        background-position: center;
+        width: 100%;
+      }
+    }
+    .detail{
+      padding: 1rem;
+      p{
+        @include fontStyle(2rem,bold)
+      }
+    }
+    
+  }
+}
+
+::ng-deep {
+  .owl-stage {
+    float: left;
+  }
+
+  .owl-nav {
+    display: none;
+  }
+
+  .owl-item {
+    margin: 2rem 0;
+    width: 100%;
+    height: auto;
+  }
+}

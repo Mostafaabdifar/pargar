@@ -1,4 +1,9 @@
+@import "../../../../assets/sass/_color.scss";
+
 ::ng-deep{
+  .owl-carousel{
+    background-color: $main-bg;
+  }
   .owl-stage{
     float: left;
   }

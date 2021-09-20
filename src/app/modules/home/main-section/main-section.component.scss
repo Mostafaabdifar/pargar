@@ -1,10 +1,19 @@
 @import "../../../../assets/sass/color";
 main{
   height: auto;
+  background-color: $main-bg !important;
 }
 
 .main-container{
-  background-color: $main-bg;
   width: 117rem;
   margin: 0 auto;
+}
+
+.fixNav{
+  position: fixed;
+  top: -1rem;
+  width: 100%;
+  z-index: 100;
+  transition:all .3s ease;
+
 }

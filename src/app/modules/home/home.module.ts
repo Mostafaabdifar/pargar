@@ -1,4 +1,3 @@
-import { AppRoutingModule } from './../../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SliderComponent } from './slider/slider.component';
@@ -11,6 +10,7 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ProductComponent } from './product/product.component';
 import { SingleSectionComponent } from './single-section/single-section.component';
+import { FeatureComponent } from './feature/feature.component';
 
 
 @NgModule({
@@ -20,15 +20,15 @@ import { SingleSectionComponent } from './single-section/single-section.componen
     MenuComponent,
     ProductComponent,
     SingleSectionComponent,
+    FeatureComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule, 
     BrowserModule,
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
-    AppRoutingModule
+    HomeRoutingModule, 
   ],
 })
 export class HomeModule { }

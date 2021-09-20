@@ -1,0 +1,24 @@
+
+  <section class="feature" *ngFor="let item of itemProduct">
+    <div class="feature-container">
+      <div class="slider">
+        <owl-carousel-o [options]="feature">
+          <ng-container>
+            <ng-template carouselSlide >
+              <a href="">
+                <div class="avatar">
+                  <img [src]="item.feature_avatar.xhdpi" alt="{{item.name }}">
+                </div>
+                <div class="detail">
+                  <p>{{item.name}}</p>
+                </div>
+              </a>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </section>
+
+
+

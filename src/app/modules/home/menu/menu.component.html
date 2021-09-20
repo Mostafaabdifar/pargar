@@ -1,9 +1,15 @@
 <section class="category-menu">
   <div class="category-container">
     <nav class="navbar">
-      <ul class="category-item" >
-        <li *ngFor="let item of categoryItem"><a>{{item.title}}</a></li>
-        <!-- <li *ngFor="let child of categoryItem?.childs"><a href="">{{child.title}}</a></li> -->
+      <ul class="category-item">
+        <li *ngFor="let item of category">
+          <a *ngIf="item.is_visible === true">{{item.title}}</a>
+          <ul class="category-child">
+            <li *ngFor="let childItem of item.childs">
+              <a href="">{{childItem.title}}</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>

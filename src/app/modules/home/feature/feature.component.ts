@@ -1,16 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { HomeItem, Product } from 'src/app/model/category.model';
+import { Product } from 'src/app/model/category.model';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-feature',
+  templateUrl: './feature.component.html',
+  styleUrls: ['./feature.component.scss']
 })
-export class ProductComponent implements OnInit {
-  @Input("homeList") home:HomeItem[] = [];
+export class FeatureComponent implements OnInit {
 
-  product: OwlOptions = {
+  @Input("itemProduct") itemProduct:Product[] = [];
+  
+  feature: OwlOptions = {
     loop: false,
     margin: 20,
     autoplay:true,
@@ -30,7 +31,7 @@ export class ProductComponent implements OnInit {
         items: 2
       },
       900: {
-        items: 4
+        items: 3
       },
       1200: {
         items: 4
@@ -39,11 +40,17 @@ export class ProductComponent implements OnInit {
     nav: true,  
   }
    
-  constructor( ) {
-  }
+    slides = [
+      {id: "1", img: "../../../assets/img/asdasd.jpg"},
+      {id: "2", img: "../../../assets/img/3.jpg"},
+      {id: "3", img: "../../../assets/img/2.jpg"},
+      {id: "4", img: "../../../assets/img/1.jpg"},
+      {id: "5", img: "../../../assets/img/1.jpg"},
+    ];
+
+  constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }

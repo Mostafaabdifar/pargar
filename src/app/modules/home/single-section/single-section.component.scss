@@ -1,11 +1,15 @@
 @import "../../../../assets/sass/color";
 @import "../../../../assets/sass/mixin";
-
-.single-section{
+a{
+  text-decoration: none;
+  color: $black;
+}
+.single-section {
   background-color: $white;
   padding: 0 .5rem;
+  margin-bottom: 4rem;
 
-  .single-container{
+  .single-container {
     width: 100%;
     padding: 2.5rem;
     background: $white;
@@ -14,10 +18,44 @@
     border: .1rem solid rgba(0, 0, 0, 0.09);
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
-    .right-section{
-      
+    .right-section {
+      flex: 1;
+      width: 41%;
+
+      img {
+        border-radius: 1rem;
+        height: auto;
+        min-height: 7rem;
+        background-size: 10rem;
+        background-position: center;
+        vertical-align: middle;
+      }
+     
     }
+    .left-section {
+      flex: 2;
+      padding: 1.5rem 3rem 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+
+      h3{
+        display: block;
+        @include fontStyle(2.5rem,bold);
+        margin-bottom: 1rem;
+      }
+      p{
+        @include fontStyle(1.5rem,normal);
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+      h4{
+        @include fontStyle(1.5rem,bold);
+        margin:1rem 0;
+      }
+
+
+    }
+
   }
 }
